@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import 'antd/dist/antd.css'
 import LoginForm from '../Login/Login'
 import Header from '../Header/Header'
-import { AuthContext } from '../../contexts/AuthContext'
+import { AuthContext } from '../../../src/contexts/AuthContext'
 
 const {Content, Footer } = Layout;
 

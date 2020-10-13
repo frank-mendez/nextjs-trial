@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import { Row, Col, Form, Input, Button, Alert } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { AuthContext } from '../../contexts/AuthContext'
+import { AuthContext } from '../../../src/contexts/AuthContext'
 
 const Login = () => {
 

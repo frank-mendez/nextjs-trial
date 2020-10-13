@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import 'antd/dist/antd.css'
-import { AuthContext } from '../../contexts/AuthContext'
+import { AuthContext } from '../../../src/contexts/AuthContext'
 import { Layout, Menu } from 'antd';
 
 const { Header } = Layout;

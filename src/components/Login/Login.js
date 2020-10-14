@@ -15,7 +15,7 @@ const Login = () => {
     return (
 
         <Row style={{marginTop:'100px'}}>
-            <Col span={8} offset={8}>
+            <Col xs={{span:24}} sm={{span:20, offset: 2}}  md={{span: 16, offset:4}} lg={{span:8, offset: 8}} >
                 {errorMessage &&
                     <Alert
                         message="Error"

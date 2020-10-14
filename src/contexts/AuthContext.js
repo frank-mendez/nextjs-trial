@@ -1,12 +1,15 @@
 import React, { useEffect, useState, createContext } from 'react'
 import cookie from 'js-cookie'
 import firebase from '../firebaseConfig'
+import { useRouter } from 'next/router'
+
 
 export const AuthContext = createContext()
 
 const tokenName = 'firebaseToken';
 
 const AuthContextProvider = ({ children }) => {
+    const router = useRouter()
 
     const [loginLoading, setLoginLoading] = useState(false)
     const [isAuth, setIsAuth] = useState(false)
@@ -14,25 +17,15 @@ const AuthContextProvider = ({ children }) => {
     
     const emailLogin = async (email, password, redirectPath) => {
         setLoginLoading(true)
-        await firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+        await firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
             console.log('User logged in')
             setLoginLoading(false)
             setIsAuth(true)
+            router.push('/admin/')
         }).catch((err) => {
             console.log(err)
             setErrorMessage(JSON.stringify(err))
             setLoginLoading(false)
-        })
-    }
-
-    const onAuthStateChange = () => {
-        return firebase.auth.onAuthStateChange(async (user) => {
-            if (user) {
-                const token = await user.getIdToken();
-                cookie.set(tokenName, token, {expires: 14})
-            } else {
-                cookie.remove(tokenName)
-            }
         })
     }
 
@@ -46,13 +39,6 @@ const AuthContextProvider = ({ children }) => {
             console.log('Sign-out unsuccessful')
         });
     }
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChange
-        return () => {
-            unsubscribe()
-        }
-    }, [])
 
     return (
         <AuthContext.Provider value={{emailLogin, loginLoading, isAuth, errorMessage, signOut }}>

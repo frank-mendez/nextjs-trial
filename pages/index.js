@@ -5,8 +5,6 @@ import LayoutContainer from '../src/components/Layout/Layout'
 export default function Home(props) {
 
   return (
-    <AuthContextProvider>
-       <LayoutContainer />
-    </AuthContextProvider>
+   <LayoutContainer />
   )
 }

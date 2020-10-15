@@ -14,11 +14,6 @@ export default function Admin() {
     const router = useRouter()
     const { isAuth } = useContext(AuthContext)
   
-    useEffect(() => {
-        if (!isAuth) {
-        router.push('/')
-        }
-    }, [])
 
     useEffect(() => {
         typeformEmbed.makeWidget(typeformRef.current, 'https://frankmendezwebdev.typeform.com/to/bfDayWzh', {
@@ -32,18 +27,10 @@ export default function Admin() {
     }, [typeformRef])
 
   return (
-    <Layout className="layout">
-        <Header />
-        <Content style={{ padding: '0 50px' }}>
-          <div className="site-layout-content">
-            <Row gutter={[16, 16]}>
-                <Col span={12} offset={6}>
-                    <div ref={typeformRef} style={{ height: '100vh', width: '100%'}}></div>
-                </Col>
-            </Row>
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design</Footer>
-      </Layout>
+   <Row gutter={[16, 16]}>
+      <Col span={12} offset={6}>
+          <div ref={typeformRef} style={{ height: '100vh', width: '100%'}}></div>
+      </Col>
+  </Row>
   )
 }

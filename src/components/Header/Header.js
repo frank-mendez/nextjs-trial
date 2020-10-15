@@ -17,16 +17,12 @@ export default function HeaderLayout(props) {
   return (
     <Header>
         <div className="logo" />
-          {isAuth ?
-              (
-                  <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-                    <Menu.Item key="1">Home</Menu.Item>
-                    <Menu.Item key="2">Products</Menu.Item>
-                    <Menu.Item key="3">Pages</Menu.Item>
-                    <Menu.Item onClick={() => logout()} key="4">Logout</Menu.Item>
-                  </Menu>
-              ) : null
-          }
+         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">Home</Menu.Item>
+            <Menu.Item key="2">Products</Menu.Item>
+            <Menu.Item key="3">Pages</Menu.Item>
+            <Menu.Item onClick={() => logout()} key="4">Logout</Menu.Item>
+          </Menu>
     </Header>
   )
 }

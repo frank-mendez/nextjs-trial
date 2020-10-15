@@ -37,7 +37,7 @@ export default function Admin() {
                   </Col>
                   <Col  span={12}>
                     <Image
-                        width={300}
+                        width={600}
                         src="https://www.clipartmax.com/png/full/247-2471543_our-business-attitude-landing-page-illustrations.png"
                         />
                   </Col>
